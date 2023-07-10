@@ -1,8 +1,7 @@
 #!/bin/bash
 
-if [ "$(uname)" != "Darwin" ] ; then
-	echo "Not macOS!"
-	exit 1
-fi
+source $(dirname "${BASH_SOURCE[0]:-$0}")/util.sh
+
+check_macos
 
 brew bundle --global
