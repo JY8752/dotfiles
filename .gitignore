@@ -30,8 +30,8 @@
 !/.config/nvim
 
 /chrome/*
-!/chrome/extentions
+!/chrome/extensions
 
 /vscode/*
-!/vscode/extentions
+!/vscode/extensions
 !/vscode/settings.json

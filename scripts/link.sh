@@ -2,29 +2,6 @@
 
 source $(dirname "${BASH_SOURCE[0]:-$0}")/util.sh
 
-function backup_and_link() {
-	local link_src_file=$1
-	local link_dest_dir=$2
-	local backupdir=$3
-	local f_filename
-
-	f_filename=$(basename "$link_src_file")
-	local f_filepath="$link_dest_dir/$f_filename"
-
-    # 既にシンボリックリンクとして存在する場合は削除
-	if [[ -L "$f_filepath" ]]; then
-		command rm -f "$f_filepath"
-	fi
-
-    # シンボリックリンクでなく実ファイルであればバックアップ
-	if [[ -e "$f_filepath" && ! -L "$f_filepath" ]]; then
-		command mv "$f_filepath" "$backupdir"
-	fi
-
-	echo "Creating symlink for $link_src_file -> $link_dest_dir"
-	command ln -snf "$link_src_file" "$link_dest_dir"
-}
-
 function link_to_homedir() {
     # backupディレクトリを作成　
     print_notice "backup old dotfiles..."

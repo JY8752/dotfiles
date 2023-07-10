@@ -16,3 +16,11 @@ defaults:
 # Install macOS applications.
 brew:
 	@scripts/brew.sh
+
+# update vscode extentions
+codeex:
+	@code --list-extensions > vscode/extensions
+
+# Set VSCode settings.
+code:
+	@scripts/code.sh
