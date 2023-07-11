@@ -35,3 +35,5 @@
 /vscode/*
 !/vscode/extensions
 !/vscode/settings.json
+
+!/Raycast*.rayconfig
