@@ -23,7 +23,6 @@ brew "git-now"
 # gnupg
 brew "gradle"
 brew "grpcurl"
-guile
 brew "helm"
 # jenv
 brew "jq"
