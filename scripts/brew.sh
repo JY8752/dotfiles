@@ -4,4 +4,4 @@ source $(dirname "${BASH_SOURCE[0]:-$0}")/util.sh
 
 check_macos
 
-brew bundle --global
+brew bundle --file .Brewfile
