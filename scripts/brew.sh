@@ -2,6 +2,11 @@
 
 source $(dirname "${BASH_SOURCE[0]:-$0}")/util.sh
 
-check_macos
+function set_homebrew() {
+	check_macos
 
-brew bundle --file .Brewfile
+	current_dir=$(dirname "${BASH_SOURCE[0]:-$0}")
+	brew bundle --file "$current_dir/.Brewfile"
+}
+
+set_homebrew
