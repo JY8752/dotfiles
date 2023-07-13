@@ -11,6 +11,7 @@ brew "age"
 brew "awscli"
 # brew "binaryen"
 brew "clang-format"
+brew "coreutils"
 # cmake
 brew "deno"
 brew "direnv"
@@ -57,7 +58,7 @@ cask "hammerspoon"
 cask "intellij-idea-ce"
 # cask "intellij-idea"
 cask "obsidian"
-cask "deel"
+cask "deepl"
 cask "visualvm"
 cask "mysqlworkbench"
 
@@ -65,6 +66,6 @@ cask "mysqlworkbench"
 # cask "line"
 # cask "kindle"
 
-# 手動
+# manual install
 # gifski https://gif.ski/
 # Flux https://justgetflux.com/

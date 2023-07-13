@@ -46,12 +46,12 @@ function backup_and_link() {
 	f_filename=$(basename "$link_src_file")
 	local f_filepath="$link_dest_dir/$f_filename"
 
-	# 既にシンボリックリンクとして存在する場合は削除
+	# Delete if already exists as a symbolic link
 	if [[ -L "$f_filepath" ]]; then
 		command rm -f "$f_filepath"
 	fi
 
-	# シンボリックリンクでなく実ファイルであればバックアップ
+	# Backup if it is a real file, not a symbolic link
 	if [[ -e "$f_filepath" && ! -L "$f_filepath" ]]; then
 		command mv "$f_filepath" "$backupdir"
 	fi

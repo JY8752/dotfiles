@@ -13,18 +13,18 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd(){ vcs_info }
 
 #nodenv
-eval "$(nodenv init - --no-rehash)"
+# eval "$(nodenv init - --no-rehash)"
 
 #java
 #export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 #go
-export GOPATH=/Users/yamanakajunichi  # GOPATHにすると決めた場所
-export PATH=$GOPATH/bin:$PATH
+# export GOPATH=/Users/yamanakajunichi  # GOPATHにすると決めた場所
+# export PATH=$GOPATH/bin:$PATH
 
 #jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
 
 # vim alias
 alias vi="nvim"
@@ -81,14 +81,14 @@ export EDITOR=vim
 eval "$(direnv hook zsh)"
 
 # graal
-export PATH=/Library/Java/JavaVirtualMachines/graalvm-ce-java17-22.2.0/Contents/Home/bin:"$PATH"
-export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java17-22.2.0/Contents/Home
+# export PATH=/Library/Java/JavaVirtualMachines/graalvm-ce-java17-22.2.0/Contents/Home/bin:"$PATH"
+# export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java17-22.2.0/Contents/Home
 
-export JAVA_HOME=$GRAALVM_HOME
+# export JAVA_HOME=$GRAALVM_HOME
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# export SDKMAN_DIR="$HOME/.sdkman"
+# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # キーボードアシスト
 alias chkey="open /System/Library/CoreServices/KeyboardSetupAssistant.app"
@@ -111,4 +111,17 @@ PS1='$(kube_ps1)'$PS1
 
 # helm 補完
 source <(helm completion zsh)
+
+# asdf
+
+# asdfの補完
+# . /opt/homebrew/opt/asdf/libexec/asdf.sh
+# fpath=($(brew --prefix asdf)/completions $fpath)
+# autoload -Uz compinit && compinit
+
+# asdfのJAVA_HOMEを設定
+. ~/.asdf/plugins/java/set-java-home.zsh
+
+# asdfのGOROOTを設定
+. ~/.asdf/plugins/golang/set-env.zsh
 

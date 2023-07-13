@@ -3,7 +3,7 @@
 source $(dirname "${BASH_SOURCE[0]:-$0}")/util.sh
 
 function link_to_homedir() {
-    # backupディレクトリを作成　
+    # make backup directory
     print_notice "backup old dotfiles..."
 
     local tmp_date
@@ -19,7 +19,7 @@ function link_to_homedir() {
 	local dotfiles_dir
 	dotfiles_dir="$(builtin cd "$current_dir" && git rev-parse --show-toplevel)"
 
-    # 除外ファイルの読み込み
+    # Load excluded files
     linkignore=()
     if [[ -e "$dotfiles_dir/.linkignore" ]]; then
         while IFS= read -r line; do
@@ -27,21 +27,21 @@ function link_to_homedir() {
         done <"$dotfiles_dir/.linkignore"
     fi
 
-    # シンボリックリンクの作成
+    # make symbolic links
     for f in "$dotfiles_dir"/.??*; do
         local f_filename
         f_filename=$(basename "$f")
 
-        # 除外ファイルの場合はスキップ
+        # if excluded file, skip
         [[ ${linkignore[*]} =~ $f_filename ]] && continue
 
-        # .awsは配下のconfigをシンボリックリンクにする
+        # .aws make the subordinate config a symbolic link
         if [ "$f_filename" = ".aws" ]; then
             for config in "$f"/*; do
                 local config_filename
                 config_filename=$(basename "$config")
 
-                # 除外ファイルの場合はスキップ
+                # if excluded file, skip
                 [[ ${linkignore[*]} =~ $config_filename ]] && continue
 
                 backup_and_link "$config" "$HOME/.aws" "$backupdir"
@@ -49,13 +49,13 @@ function link_to_homedir() {
             continue
         fi
 
-        # .configは配下のディレクトリをシンボリックリンクにする
+        # .config makes the directory under it a symbolic link
         if [ "$f_filename" = ".config" ]; then
             for config in "$f"/*; do
                 local config_filename
                 config_filename=$(basename "$config")
 
-                # 除外ファイルの場合はスキップ
+                # if excluded file, skip
                 [[ ${linkignore[*]} =~ $config_filename ]] && continue
 
                 backup_and_link "$config" "$HOME/.config" "$backupdir"
@@ -63,7 +63,7 @@ function link_to_homedir() {
             continue
         fi
 
-        # それ以外はそのままホームディレクトリにシンボリックリンクを作成
+        # Create a symbolic link to the home directory as is otherwise
         backup_and_link "$f" "$HOME" "$backupdir"
     done
 }
