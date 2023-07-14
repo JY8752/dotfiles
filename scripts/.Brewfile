@@ -5,6 +5,8 @@ tap "homebrew/cask"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "aws/tap"
+tap "weaveworks/tap"
+tap "kreuzwerker/taps"
 
 brew "act"
 brew "age"

@@ -37,6 +37,13 @@ function check_macos() {
 	fi
 }
 
+function check_command() {
+	if ! command -v "$1" >/dev/null 2>&1; then
+		print_error "$1 command not found!"
+		exit 1
+	fi
+}
+
 function backup_and_link() {
 	local link_src_file=$1
 	local link_dest_dir=$2

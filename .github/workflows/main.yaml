@@ -25,4 +25,4 @@ jobs:
 
       # Initialize and place dotfiles
       - name: Setup Dotfiles
-        run: make
+        run: make test
