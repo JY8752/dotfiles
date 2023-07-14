@@ -10,6 +10,7 @@ function set_homebrew() {
 
 	brew doctor
 	brew update
+	brew upgrade
 	brew cleanup
 
 	current_dir=$(dirname "${BASH_SOURCE[0]:-$0}")
