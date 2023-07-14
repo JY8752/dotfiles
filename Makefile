@@ -1,8 +1,8 @@
 # Do everything.
 all: init link defaults brew code asdf
 
-# Test
-test: init link defaults brew codeex code chromeex asdf
+# Test(skip brew and code)
+test: init link defaults 
 
 # Set initial preference.
 init:

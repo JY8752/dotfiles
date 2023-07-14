@@ -6,13 +6,16 @@ function set_homebrew() {
 	check_macos
 	check_command "brew"
 
-	print_info "Installing Homebrew packages..."
-
+	print_info "homebrew doctor..."
 	brew doctor
-	brew update
-	brew upgrade
-	brew cleanup
 
+	print_info "homebrew update..."
+	brew update
+
+	print_info "homebrew upgrade..."
+	brew upgrade
+
+	print_info "Installing Homebrew packages..."
 	current_dir=$(dirname "${BASH_SOURCE[0]:-$0}")
 	brew bundle --file "$current_dir/.Brewfile"
 }
