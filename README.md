@@ -105,7 +105,7 @@ make chromeex
 make asdf
 ```
 
-## 参考
+## Reference
 
 https://github.com/yutkat/dotfiles/tree/main
 

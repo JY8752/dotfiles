@@ -10,25 +10,9 @@ function set_homebrew() {
 
 	brew doctor
 	brew update
-	brew upgrade
-
- local force=false
-	while [ "$#" -gt 0 ]; do
-		case "$1" in
-		--force)
-			force=true
-			;;
-		*)
-			;;
-		esac
-		shift
-	done
+	brew cleanup
 
 	current_dir=$(dirname "${BASH_SOURCE[0]:-$0}")
-	if [ "$force" = true ]; then
-		brew bundle --file "$current_dir/.Brewfile" --force
-		return
-	fi
 	brew bundle --file "$current_dir/.Brewfile"
 }
 

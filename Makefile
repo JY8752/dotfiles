@@ -2,7 +2,7 @@
 all: init link defaults brew code asdf
 
 # Test
-test: init link defaults fbrew codeex code chromeex asdf
+test: init link defaults brew codeex code chromeex asdf
 
 # Set initial preference.
 init:
@@ -19,9 +19,6 @@ defaults:
 # Install macOS applications.
 brew:
 	@scripts/brew.sh
-
-fbrew:
-	@scripts/brew.sh --force
 
 # update vscode extentions
 codeex:
