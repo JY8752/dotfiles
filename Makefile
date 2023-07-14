@@ -2,7 +2,7 @@
 all: init link defaults brew code asdf
 
 # Test
-test: init link defaults brew codeex code chromeex asdf
+test: init link defaults codeex code chromeex asdf
 
 # Set initial preference.
 init:
