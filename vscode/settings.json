@@ -63,6 +63,7 @@
   },
   "code-runner.executorMap": {
     "rust": "cargo run # $fileName",
+    "python": "python3 -u",
   },
   "code-runner.runInTerminal": true,
   "[rust]": {
@@ -72,7 +73,6 @@
   "editor.inlineSuggest.enabled": true,
   "github.copilot.enable": {
     "*": true,
-    "yaml": false,
     "plaintext": false,
     "markdown": false,
     "scminput": false
