@@ -20,7 +20,7 @@ precmd(){ vcs_info }
 
 #go
 # export GOPATH=/Users/yamanakajunichi  # GOPATHにすると決めた場所
-# export PATH=$GOPATH/bin:$PATH
+export PATH=$(go env GOPATH)/bin:$PATH
 
 #jenv
 # export PATH="$HOME/.jenv/bin:$PATH"
@@ -115,9 +115,9 @@ source <(helm completion zsh)
 # asdf
 
 # asdfの補完
-# . /opt/homebrew/opt/asdf/libexec/asdf.sh
-# fpath=($(brew --prefix asdf)/completions $fpath)
-# autoload -Uz compinit && compinit
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+fpath=($(brew --prefix asdf)/completions $fpath)
+autoload -Uz compinit && compinit
 
 # asdfのJAVA_HOMEを設定
 . ~/.asdf/plugins/java/set-java-home.zsh

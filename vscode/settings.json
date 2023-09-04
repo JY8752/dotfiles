@@ -72,9 +72,10 @@
   "rust-analyzer.check.command": "clippy",
   "editor.inlineSuggest.enabled": true,
   "github.copilot.enable": {
-    "*": true,
+    "*": false,
     "plaintext": false,
     "markdown": false,
     "scminput": false
-  }
+  },
+  "git.openRepositoryInParentFolders": "always"
 }
