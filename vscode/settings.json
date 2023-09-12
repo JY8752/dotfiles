@@ -77,5 +77,11 @@
     "markdown": false,
     "scminput": false
   },
-  "git.openRepositoryInParentFolders": "always"
+  "git.openRepositoryInParentFolders": "always",
+  "files.associations": {
+    "*.tmpl": "html"
+  },
+  "vs-kubernetes": {
+    "vscode-kubernetes.minikube-path.mac": "/Users/yamanakajunichi/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"
+  }
 }

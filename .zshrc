@@ -18,10 +18,6 @@ precmd(){ vcs_info }
 #java
 #export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
-#go
-# export GOPATH=/Users/yamanakajunichi  # GOPATHにすると決めた場所
-export PATH=$(go env GOPATH)/bin:$PATH
-
 #jenv
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
@@ -125,3 +121,6 @@ autoload -Uz compinit && compinit
 # asdfのGOROOTを設定
 . ~/.asdf/plugins/golang/set-env.zsh
 
+#go
+# export GOPATH=/Users/yamanakajunichi  # GOPATHにすると決めた場所
+export PATH=$(go env GOPATH)/bin:$PATH
