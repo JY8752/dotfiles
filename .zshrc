@@ -1,3 +1,5 @@
+# CodeWhisperer pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh"
 PROMPT='
 %*'\$vcs_info_msg_0_'
 %F{blue}[%~]%f %# '
@@ -124,3 +126,16 @@ autoload -Uz compinit && compinit
 #go
 # export GOPATH=/Users/yamanakajunichi  # GOPATHにすると決めた場所
 export PATH=$(go env GOPATH)/bin:$PATH
+
+# deno
+export PATH="/Users/yamanakajunichi/.deno/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun completions
+[ -s "/Users/yamanakajunichi/.bun/_bun" ] && source "/Users/yamanakajunichi/.bun/_bun"
+
+# CodeWhisperer post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"

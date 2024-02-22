@@ -22,9 +22,9 @@
 /.aws/*
 !/.aws/config
 
-/.config/*
-/.config/**
-!/.config/gh
+# /.config/*
+# /.config/**
+!/.config/gh/config.yml
 !/.config/karabiner
 !/.config/kitty
 !/.config/nvim

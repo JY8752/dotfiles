@@ -1,94 +1,132 @@
 {
-  "workbench.iconTheme": "catppuccin-mocha",
-  "editor.bracketPairColorization.enabled": true,
-  "editor.formatOnSave": true,
-  "editor.minimap.enabled": false,
-  "workbench.startupEditor": "none",
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[proto3]": {
+    "editor.defaultFormatter": "xaver.clang-format"
+  },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "tailwindCSS.experimental.classRegex": [
-    "tw\\('([^')]*)",
-    "classnames\\(([^)]*)\\)",
-    "'([^']*)'",
-  ],
-  "prettier.requireConfig": true,
+  "[elm]": {
+    "tailwindCSS.experimental.classRegex": ["\\bclass\\s+\"([^\"]*)\""]
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "tailwindCSS.includeLanguages": {
+    "elm": "html"
+  },
+  "background.interval": 600,
+  "code-runner.executorMap": {
+    "python": "python3 -u",
+    "rust": "cargo run # $fileName"
+  },
+  "code-runner.runInTerminal": true,
+  "editor.accessibilitySupport": "off",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.formatOnSave": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.minimap.enabled": false,
   "editor.quickSuggestions": {
     "strings": true
   },
   "editor.tabSize": 2,
-  "typescript.preferences.importModuleSpecifier": "relative",
-  "go.toolsManagement.autoUpdate": true,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "files.associations": {
+    "*.tmpl": "html"
+  },
+  "git.autofetch": true,
   "git.enableSmartCommit": true,
-  "solidity.packageDefaultDependenciesContractsDirectory": "src",
-  "solidity.packageDefaultDependenciesDirectory": "lib",
+  "git.openRepositoryInParentFolders": "always",
+  "github.copilot.enable": {
+    "*": false,
+    "markdown": false,
+    "plaintext": false,
+    "scminput": false
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "protoc": {
+    "editor.formatOnSave": true
+  },
+  "redhat.telemetry.enabled": true,
+  "rust-analyzer.check.command": "clippy",
+  "shellcheck.ignorePatterns": {
+    "**/.envrc": true
+  },
   "solidity.compileUsingRemoteVersion": "v0.8.15+commit.e14f2714",
   "solidity.defaultCompiler": "remote",
-  "git.autofetch": true,
-  "redhat.telemetry.enabled": true,
+  "solidity.packageDefaultDependenciesContractsDirectory": "src",
+  "solidity.packageDefaultDependenciesDirectory": "lib",
+  "tailwindCSS.experimental.classRegex": [
+    "tw\\('([^')]*)",
+    "classnames\\(([^)]*)\\)",
+    "'([^']*)'"
+  ],
+  "terminal.explorerKind": "external",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "vim.hlsearch": true,
   "vim.insertModeKeyBindings": [
     {
-        "before": ["j", "j"],
-        "after": ["<Esc>"]
+      "after": [
+        "<Esc>"
+      ],
+      "before": [
+        "j",
+        "j"
+      ]
     },
     {
-        "before": ["っ", "j"],
-        "after": ["<Esc>"]
+      "after": [
+        "<Esc>"
+      ],
+      "before": [
+        "っ",
+        "j"
+      ]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-        "before" : ["u"],
-        "commands" : ["undo"]
+      "before": [
+        "u"
+      ],
+      "commands": [
+        "undo"
+      ]
     },
     {
-        "before" : ["<C-r>"],
-        "commands" : ["redo"]
-    },
+      "before": [
+        "<C-r>"
+      ],
+      "commands": [
+        "redo"
+      ]
+    }
   ],
-  "vim.hlsearch": true,
-  "terminal.integrated.defaultProfile.osx": "zsh",
-  "terminal.explorerKind": "external",
-  "protoc": {
-    "editor.formatOnSave": true
-  },
-  "[proto3]": {
-    "editor.defaultFormatter": "xaver.clang-format",
-  },
-  "code-runner.executorMap": {
-    "rust": "cargo run # $fileName",
-    "python": "python3 -u",
-  },
-  "code-runner.runInTerminal": true,
-  "[rust]": {
-    "editor.defaultFormatter": "rust-lang.rust-analyzer"
-  },
-  "rust-analyzer.check.command": "clippy",
-  "editor.inlineSuggest.enabled": true,
-  "github.copilot.enable": {
-    "*": false,
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false
-  },
-  "git.openRepositoryInParentFolders": "always",
-  "files.associations": {
-    "*.tmpl": "html"
-  },
   "vs-kubernetes": {
+    "vscode-kubernetes.minikube-path-mac": "/Users/yamanakajunichi/.vs-kubernetes/tools/minikube/darwin-arm64/minikube",
     "vscode-kubernetes.minikube-path.mac": "/Users/yamanakajunichi/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"
   },
   "workbench.colorTheme": "Dracula",
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
+  "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.startupEditor": "none",
+  "terminal.integrated.env.osx": {
+    "CW_NEW_SESSION": "1"
+  },
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   }
 }
