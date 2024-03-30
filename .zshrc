@@ -1,5 +1,5 @@
 # CodeWhisperer pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh"
+#[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh"
 PROMPT='
 %*'\$vcs_info_msg_0_'
 %F{blue}[%~]%f %# '
@@ -139,3 +139,25 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # CodeWhisperer post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"
+
+# Google Cloud
+#
+# function config_rprompt() {
+#   project_id=$(gcloud config configurations list --format=json | jq -r '.[] | select(.is_active == true) | .properties.core.project')
+#   RPROMPT=%F{032}[${project_id}]%f
+# }
+
+function config_rprompt() {
+  project_id=$(awk '/project/{print $3}' ~/.config/gcloud/configurations/config_default)
+  PS1="%F{135}[${project_id}]%f $PS1"
+}
+
+# The following function is executed when the terminal is first started.
+config_rprompt
+
+function gpr() {
+  project=$(gcloud projects list --format=json | jq -r '.[].projectId' | peco)
+  gcloud config set project ${project}
+
+  config_rprompt
+}
