@@ -149,7 +149,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 function config_rprompt() {
   project_id=$(awk '/project/{print $3}' ~/.config/gcloud/configurations/config_default)
-  PS1="%F{135}[${project_id}]%f $PS1"
+  PS1="%F{214}[${project_id}]%f $PS1"
 }
 
 # The following function is executed when the terminal is first started.
