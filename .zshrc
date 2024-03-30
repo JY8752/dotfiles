@@ -159,5 +159,6 @@ function gpr() {
   project=$(gcloud projects list --format=json | jq -r '.[].projectId' | peco)
   gcloud config set project ${project}
 
-  config_rprompt
+  #config_rprompt
+  source ~/.zshrc
 }
