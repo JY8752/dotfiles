@@ -17,3 +17,7 @@
 	templatedir = ~/.git_template
 [pull]
 	rebase = true
+[rerere]
+	enabled = true
+[column]
+	ui = auto
