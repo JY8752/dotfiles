@@ -13,7 +13,7 @@ if ! xcode-select -p 1>/dev/null; then
   xcode-select --install
 fi
 
-# Install bre
+# Install brew
 if ! command -v brew >/dev/null; then
 	print_info "Installing Homebrew..."
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null

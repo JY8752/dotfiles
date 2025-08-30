@@ -1,0 +1,100 @@
+:q
+main
+:q
+main
+main
+:r
+main
+:quit
+main
+:r
+main
+:q
+exit
+main
+:r
+main
+:r
+main
+:r
+main
+:r
+main
+:r
+main
+:r
+;r
+;r
+:r
+main
+:r
+main
+:r
+main
+:r
+main
+:r
+main
+:r
+main
+:r
+main
+:r
+main
+:q
+sumdown 5
+sumdown 3
+:r
+fac 3
+fac (-3)
+:r
+fac (-3)
+fac (-30
+fac 3
+main
+:q
+main
+:r
+main
+:r
+main
+:r
+;r
+;r
+main
+main
+:r
+main
+:r
+main
+:r
+main
+:quit
+main
+:r
+test [1, 2]
+test [1, 2, 3, 1]
+test [1, 2, 3]
+:r
+helloWorld ("Hello", "World")
+helloWorld ("hello", "World")
+helloWorld ("a", "b")
+helloWorld a
+:r
+myAnd False (1 + 1 == 3)
+:r
+myAnd False (1 + 1 == 3)
+myAnd False (1 + 1 == 2)
+myAnd True (1 + 1 == 3)
+myAnd True (1 + 1 == 2)
+:r
+myAnd False False
+:r
+myAnd True (1 + 2 == 4)
+myAnd True (1 + 2 == 3)
+myAnd True False
+:r
+(1 == 1) && True
+1 == 1
+:r
+signum2 (-3)

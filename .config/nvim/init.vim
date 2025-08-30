@@ -141,3 +141,22 @@ endif
 " require('im_select').setup {
 "     default_im_select = "com.apple.keylayout.ABC"
 " }
+"
+
+" 行末までヤンク
+nnoremap Y y$
+
+" 単語の編集
+onoremap i<space> iW
+xnoremap i<space> iW
+
+" リドゥ
+nnoremap U <c-r>
+
+" Visual コピー時にカーソル位置を保存
+" xnoremap y mzy`z
+
+" 小文字大文字切り替え
+inoremap <C-g><C-u> <esc>gUiwgi
+inoremap <C-g><C-l> <esc>guiwgi
+inoremap <C-g><C-k> <esc>bgUlgi

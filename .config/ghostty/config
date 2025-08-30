@@ -1,0 +1,27 @@
+# theme = catppuccin-mocha
+# theme = iceberg-dark
+theme = nord
+
+window-padding-x = 20
+window-padding-y = 5
+window-padding-balance = true
+window-theme = ghostty
+
+background-opacity = 0.85
+background-blur = 20
+
+macos-titlebar-style = transparent
+
+# リガチャ無効にする
+font-feature = "-dlig"
+
+# 全画面表示
+fullscreen = true
+macos-non-native-fullscreen = true
+
+# AquaSKK対応
+keybind = ctrl+j=ignore
+
+keybind = ctrl+p=unbind
+keybind = ctrl+n=unbind
+

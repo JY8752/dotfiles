@@ -58,7 +58,7 @@ function link_to_homedir() {
                 # if excluded file, skip
                 [[ ${linkignore[*]} =~ $config_filename ]] && continue
 
-                backup_and_link "$config" "$HOME/.config" "$backupdir"
+                backup_and_link "$config" "$HOME/.config/$config_filename" "$backupdir"
             done
             continue
         fi

@@ -1,0 +1,12 @@
+shell = "zsh"
+
+[plugins]
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+
+[plugins.F-Sy-H]
+github = "z-shell/F-Sy-H"
+
+[plugins.zsh-z]
+github = "agkozak/zsh-z"

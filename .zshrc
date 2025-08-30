@@ -1,28 +1,8 @@
-# CodeWhisperer pre block. Keep at the top of this file.
-#[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh"
+# Amazon Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 PROMPT='
 %*'\$vcs_info_msg_0_'
 %F{blue}[%~]%f %# '
-
-# git設定
-autoload -Uz vcs_info
-setopt prompt_subst
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
-zstyle ':vcs_info:git:*' unstagedstr "%F{magenta}+"
-zstyle ':vcs_info:*' formats "%F{cyan}%c%u[%b]%f"
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
-precmd(){ vcs_info }
-
-#nodenv
-# eval "$(nodenv init - --no-rehash)"
-
-#java
-#export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-
-#jenv
-# export PATH="$HOME/.jenv/bin:$PATH"
-# eval "$(jenv init -)"
 
 # vim alias
 alias vi="nvim"
@@ -78,18 +58,9 @@ export PATH="$HOME/.jbang/bin:$PATH"
 export EDITOR=vim
 eval "$(direnv hook zsh)"
 
-# graal
-# export PATH=/Library/Java/JavaVirtualMachines/graalvm-ce-java17-22.2.0/Contents/Home/bin:"$PATH"
-# export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java17-22.2.0/Contents/Home
-
-# export JAVA_HOME=$GRAALVM_HOME
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-# export SDKMAN_DIR="$HOME/.sdkman"
-# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# キーボードアシスト
-alias chkey="open /System/Library/CoreServices/KeyboardSetupAssistant.app"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/yamanakajunichi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yamanakajunichi/google-cloud-sdk/path.zsh.inc'; fi
@@ -103,29 +74,8 @@ alias k=kubectl
 # kubectl 補完
 source <(kubectl completion zsh)
 
-# kube-ps1
-source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
-PS1='$(kube_ps1)'$PS1
-
 # helm 補完
 source <(helm completion zsh)
-
-# asdf
-
-# asdfの補完
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-fpath=($(brew --prefix asdf)/completions $fpath)
-autoload -Uz compinit && compinit
-
-# asdfのJAVA_HOMEを設定
-. ~/.asdf/plugins/java/set-java-home.zsh
-
-# asdfのGOROOTを設定
-. ~/.asdf/plugins/golang/set-env.zsh
-
-#go
-# export GOPATH=/Users/yamanakajunichi  # GOPATHにすると決めた場所
-export PATH=$(go env GOPATH)/bin:$PATH
 
 # deno
 export PATH="/Users/yamanakajunichi/.deno/bin:$PATH"
@@ -133,19 +83,6 @@ export PATH="/Users/yamanakajunichi/.deno/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-# bun completions
-[ -s "/Users/yamanakajunichi/.bun/_bun" ] && source "/Users/yamanakajunichi/.bun/_bun"
-
-# CodeWhisperer post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"
-
-# Google Cloud
-#
-# function config_rprompt() {
-#   project_id=$(gcloud config configurations list --format=json | jq -r '.[] | select(.is_active == true) | .properties.core.project')
-#   RPROMPT=%F{032}[${project_id}]%f
-# }
 
 function config_rprompt() {
   project_id=$(awk '/project/{print $3}' ~/.config/gcloud/configurations/config_default)
@@ -162,3 +99,61 @@ function gpr() {
   #config_rprompt
   source ~/.zshrc
 }
+
+# terraform
+alias tf="terraform"
+
+ssh-add --apple-use-keychain ~/.ssh/id_rsa > /dev/null 2>&1
+
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+
+alias gotest="gotestsum --format testdox"
+alias gotestv="gotestsum --format standard-verbose"
+alias gotestw="gotestsum --format testdox --watch"
+
+# volta
+export VOLTA_HOME=$HOME/.volta
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+[ -f "/Users/yamanakajunichi/.ghcup/env" ] && . "/Users/yamanakajunichi/.ghcup/env" # ghcup-env
+eval "$(rbenv init -)"
+
+eval "$(starship init zsh)"
+eval "$(sheldon source)"
+
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#767676"
+
+# fzf
+function fzf-select-history() {
+    BUFFER=$(history -n -r 1 | fzf --query "$LBUFFER" --reverse)
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+zle -N fzf-select-history
+bindkey '^r' fzf-select-history
+
+# bat
+alias cat="bat"
+
+# eza
+alias l="eza"
+alias la="eza -a --git -g -h --oneline --icons"
+alias ll="eza -al --git --icons --time-style relative"
+
+# ghq
+function ghq-fzf() {
+  local src=$(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")
+  if [ -n "$src" ]; then
+    BUFFER="cd $(ghq root)/$src"
+    zle accept-line
+  fi
+  zle -R -c
+}
+zle -N ghq-fzf
+bindkey '^g' ghq-fzf
+
+export PATH="$HOME/bin:$PATH"
+
+# Amazon Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+

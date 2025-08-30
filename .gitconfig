@@ -1,6 +1,6 @@
 [user]
-	name = JY8752
-	email = j.y.8752@gmail.com
+  name = JY8752
+  email = j.y.8752@gmail.com
 [alias]
   # いい感じのグラフでログを表示
   graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
@@ -12,12 +12,38 @@
   stt = status -uno
   # 行ごとの差分じゃなくて，単語レベルでの差分を色付きで表示する
   difff = diff --word-diff
-[init]
-	defaultBranch = main
-	templatedir = ~/.git_template
-[pull]
-	rebase = true
-[rerere]
-	enabled = true
+  # ref https://qiita.com/mizchi/items/dcdc57f748a1d6cc3648
+  delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
 [column]
-	ui = auto
+  ui = auto
+[branch]
+  sort = -committerdate
+[tag]
+  sort = version:refname
+[init]
+  defaultBranch = main
+  templatedir = ~/.git_template
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
+[push]
+  default = simple
+  autoSetupRemote = true
+  followTags = true
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
+[pull]
+  rebase = true
+[rerere]
+  enabled = true
+  autoupdate = true
+[rebase]
+  autoSquash = true
+  autoStash = true
+  updateRefs = true
+[merge]
+  conflictstyle = zdiff3 

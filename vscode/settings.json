@@ -1,30 +1,28 @@
 {
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "[elm]": {
+    "tailwindCSS.experimental.classRegex": ["\\bclass\\s+\"([^\"]*)\""]
+  },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[proto3]": {
-    "editor.defaultFormatter": "xaver.clang-format"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer"
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[elm]": {
-    "tailwindCSS.experimental.classRegex": ["\\bclass\\s+\"([^\"]*)\""]
-  },
-  "[astro]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "tailwindCSS.includeLanguages": {
-    "elm": "html"
+    // "editor.defaultFormatter": "biomejs.biome"
   },
   "background.interval": 600,
   "code-runner.executorMap": {
@@ -35,6 +33,10 @@
   "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
   "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "quickfix.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
   "editor.inlineSuggest.enabled": true,
   "editor.minimap.enabled": false,
   "editor.quickSuggestions": {
@@ -52,13 +54,14 @@
   "git.openRepositoryInParentFolders": "always",
   "github.copilot.enable": {
     "*": true,
+    "markdown": "true",
     "plaintext": false,
-    "markdown": false,
     "scminput": false
   },
   "go.toolsManagement.autoUpdate": true,
   "protoc": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "options": ["-I=~/.cache/buf/v1/module/data/buf.build"]
   },
   "redhat.telemetry.enabled": true,
   "rust-analyzer.check.command": "clippy",
@@ -74,60 +77,65 @@
     "classnames\\(([^)]*)\\)",
     "'([^']*)'"
   ],
+  "tailwindCSS.includeLanguages": {
+    "elm": "html"
+  },
   "terminal.explorerKind": "external",
   "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.env.osx": {
+    "CW_NEW_SESSION": "1",
+    "Q_NEW_SESSION": "1"
+  },
   "typescript.preferences.importModuleSpecifier": "relative",
   "vim.hlsearch": true,
+  "vim.useSystemClipboard": true,
   "vim.insertModeKeyBindings": [
     {
-      "after": [
-        "<Esc>"
-      ],
-      "before": [
-        "j",
-        "j"
-      ]
+      "after": ["<Esc>"],
+      "before": ["j", "j"]
     },
     {
-      "after": [
-        "<Esc>"
-      ],
-      "before": [
-        "っ",
-        "j"
-      ]
+      "after": ["<Esc>"],
+      "before": ["っ", "j"]
+    },
+    {
+      "before": ["<C-g>", "<C-u>"],
+      "commands": ["<Esc>", "gUiw", "gi"]
+    },
+    {
+        "before": ["<C-g>", "<C-l>"],
+        "commands": ["<Esc>", "guiw", "gi"]
+    },
+    {
+        "before": ["<C-g>", "<C-k>"],
+        "commands": ["<Esc>", "b", "gU", "l", "gi"]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "u"
-      ],
-      "commands": [
-        "undo"
-      ]
+      "before": ["u"],
+      "commands": ["undo"]
     },
     {
-      "before": [
-        "<C-r>"
-      ],
-      "commands": [
-        "redo"
-      ]
-    }
+      "before": ["U"],
+      "commands": ["redo"]
+    },
+
   ],
   "vs-kubernetes": {
     "vscode-kubernetes.minikube-path-mac": "/Users/yamanakajunichi/.vs-kubernetes/tools/minikube/darwin-arm64/minikube",
     "vscode-kubernetes.minikube-path.mac": "/Users/yamanakajunichi/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"
   },
-  "workbench.colorTheme": "Dracula",
+  "workbench.colorTheme": "Iceberg",
   "workbench.iconTheme": "catppuccin-mocha",
   "workbench.startupEditor": "none",
-  "terminal.integrated.env.osx": {
-    "CW_NEW_SESSION": "1"
-  },
-  "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-  },
-  "background.useRandom": true
+  "github.copilot.editor.enableAutoCompletions": true,
+  "cSpell.userWords": [
+    "runn",
+    "zenn"
+  ],
+  "vim.vimrc.enable": true,
+  "workbench.activityBar.location": "top",
+  "editor.inlineSuggest.suppressSuggestions": true,
+  "haskell.manageHLS": "GHCup",
 }

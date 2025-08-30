@@ -26,7 +26,8 @@ function setting_vscode() {
   if [ "$(which code)" != "" ]; then
     cat < "${root_dir}/vscode/extensions" | while read -r line
     do
-      code --install-extension "$line"
+      # code --install-extension "$line"
+      cursor --install-extension "$line"
     done
   else
     print_error "Install the code command from the command palette to add your extensions."

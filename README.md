@@ -7,8 +7,6 @@ This repository is for managing dotfiles. It covers the following items. Note th
 - Creation of symbolic links for dotfiles.
 - Management of frequently used programming languages.
 - Listing and installation of VSCode extensions.
-- Listing of Google Chrome extensions.
-- Import file for Raycast.
 
 We manually manage globally installed libraries for Node and Go as version management can be challenging in this repository.
 
@@ -16,19 +14,11 @@ We manually manage globally installed libraries for Node and Go as version manag
 
 - aws
 - GitHub
-- hammerspoon
 - vscode
 - intelliJ
 - zsh
 - neovim
-- kitty
 - Homebrew
-- asdf
-
-- Go
-- TypeScript
-- Java
-- Kotlin
 
 ## Installation
 
@@ -65,44 +55,16 @@ make init
 make link
 ```
 
-### change Mac OS default setting
-
-```
-make defaults
-```
-
 ### install brew package
 
 ```
 make berw
 ```
 
-### list up vscode 
-
-Overwrite the ```vscode/extensions``` with extensions installed in the running OS's VSCode.
-
-```
-make codeex
-```
-
 ### install vscode extensions
 
 ```
 make code
-```
-
-### list up google chrome extensions
-
-Write out a list of installation URLs for Google Chrome extensions installed on the running terminal to ```chrome/extensions``` (these extensions are only written out and manually managed).
-
-```
-make chromeex
-```
-
-### install languages
-
-```
-make asdf
 ```
 
 ## Reference
