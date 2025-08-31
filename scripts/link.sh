@@ -51,6 +51,7 @@ function link_to_homedir() {
 
         # .config makes the directory under it a symbolic link
         if [ "$f_filename" = ".config" ]; then
+            mkdir_not_exist "$HOME/.config"
             for config in "$f"/*; do
                 local config_filename
                 config_filename=$(basename "$config")
