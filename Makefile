@@ -22,3 +22,7 @@ brewfile:
 # Set VSCode settings.
 code:
 	@scripts/code.sh
+
+# Set Cursor settings.
+cursor:
+	@scripts/cursor.sh
