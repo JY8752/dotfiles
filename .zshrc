@@ -13,6 +13,7 @@ alias view="nvim -R"
 # git alias
 alias add='git add'
 alias commit='git commit'
+alias cm='git commit -m'
 alias pull='git pull'
 alias push='git push'
 alias st='git status'
