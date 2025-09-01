@@ -128,6 +128,7 @@ cask "cleanshot"
 cask "cursor"
 cask "deepl"
 cask "font-hack-nerd-font"
+cask "gcloud-cli"
 cask "ghostty"
 cask "hammerspoon"
 cask "karabiner-elements", args: { appdir: "/Applications" }

@@ -1,5 +1,6 @@
 # Amazon Q pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
+
 PROMPT='
 %*'\$vcs_info_msg_0_'
 %F{blue}[%~]%f %# '
@@ -10,10 +11,13 @@ alias vim="nvim"
 alias view="nvim -R"
 
 # git alias
+alias add='git add'
+alias commit='git commit'
 alias pull='git pull'
 alias push='git push'
 alias st='git status'
 alias stt='git status -uno'
+alias cz='git-cz'
 
 # other alias
 alias ls='ls -A'
@@ -48,7 +52,7 @@ export LANG=ja_JP.UTF-8
 # ビープ音を鳴らさないようにする
 setopt no_beep
 
-export PATH="$PATH:/Users/yamanakajunichi/.foundry/bin"
+export PATH="$PATH:$HOME/.foundry/bin"
 
 # Add JBang to environment
 alias j!=jbang
@@ -62,12 +66,6 @@ eval "$(direnv hook zsh)"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/yamanakajunichi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yamanakajunichi/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/yamanakajunichi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yamanakajunichi/google-cloud-sdk/completion.zsh.inc'; fi
-
 # kubectlのalias
 alias k=kubectl
 
@@ -78,7 +76,7 @@ source <(kubectl completion zsh)
 source <(helm completion zsh)
 
 # deno
-export PATH="/Users/yamanakajunichi/.deno/bin:$PATH"
+export PATH="$HOME/.deno/bin:$PATH"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -115,7 +113,7 @@ alias gotestw="gotestsum --format testdox --watch"
 export VOLTA_HOME=$HOME/.volta
 export PATH="$VOLTA_HOME/bin:$PATH"
 
-[ -f "/Users/yamanakajunichi/.ghcup/env" ] && . "/Users/yamanakajunichi/.ghcup/env" # ghcup-env
+[ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env
 eval "$(rbenv init -)"
 
 eval "$(starship init zsh)"
@@ -157,3 +155,8 @@ export PATH="$HOME/bin:$PATH"
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc'; fi
