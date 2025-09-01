@@ -10,25 +10,32 @@ format = """
 
 [character]
 success_symbol = '[╰─>](bold green)'
-error_symbol = '[x >](bold red)'
+error_symbol = '[╰─>](bold green)'
+
+[status]
+disabled = false
+style = "red"
+symbol = " \\(╯°□°）╯︵ ┻━┻ "
+format = "\b[$symbol$status](fg:$style)"
 
 [git_branch]
 format = '[$symbol$branch(:$remote_branch) ]($style)'
 
-# ref https://zenn.dev/link/comments/ced6da507bf16f
+# ref https://github.com/starship/starship/discussions/1107#discussioncomment-345147
 [git_status]
-format = '$all_status$ahead_behind '
-conflicted = ''
-ahead = ''
-behind = ''
-diverged = ''
+style = "#f05133"
+format = "($conflicted$staged$modified$renamed$deleted$untracked$stashed$ahead_behind\b )"
+conflicted = "[ ](fg:88)[   ${count} ](fg:white bg:88)[ ](fg:88)"
+staged = "[M$count ](fg:green)"
+modified = "[M${count} ](fg:red)"
+renamed = "[R${count} ](fg:208)"
+deleted = "[ ${count} ](fg:208)"
+untracked = "[?${count} ](fg:red)"
 up_to_date = '[✓](bold green)'
-untracked = ''
-stashed = ''
-modified = '🔥'
-staged = ''
-renamed = ''
-deleted = ''
+stashed = " ${count} "
+ahead = "[ ${count} ](fg:purple)"
+behind = "[ ${count} ](fg:yellow)"
+diverged = "[](fg:88)[  נּ ](fg:white bg:88)[ ${ahead_count} ](fg:purple bg:88)[ ${behind_count} ](fg:yellow bg:88)[ ](fg:88)"
 
 [time]
 disabled = false

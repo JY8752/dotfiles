@@ -46,4 +46,6 @@
   autoStash = true
   updateRefs = true
 [merge]
-  conflictstyle = zdiff3 
+  # conflictstyle = zdiff3 
+[core]
+  excludesfile = ~/.gitignore_global
